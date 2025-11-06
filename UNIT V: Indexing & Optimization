@@ -1,0 +1,12 @@
+-- Create indexes
+CREATE INDEX idx_student_name ON Students(StudentName);
+CREATE INDEX idx_course_name ON Courses(CourseName);
+
+-- Query using index
+SELECT * FROM Students WHERE StudentName = 'Alice';
+
+-- Simulate update and index maintenance
+UPDATE Students SET Major = 'AIML' WHERE StudentID = 1;
+
+-- Delete and observe index impact
+DELETE FROM Students WHERE StudentID = 2;
