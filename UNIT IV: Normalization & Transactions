@@ -1,0 +1,13 @@
+-- Normalized schema already shown in Unit I
+
+-- Data Control Language
+GRANT SELECT ON Students TO 'user1';
+REVOKE SELECT ON Students FROM 'user1';
+
+-- Transaction Control Language
+BEGIN;
+UPDATE Courses SET Credits = 5 WHERE CourseID = 101;
+SAVEPOINT sp1;
+DELETE FROM Enrollments WHERE StudentID = 2;
+ROLLBACK TO sp1;
+COMMIT;
