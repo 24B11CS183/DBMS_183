@@ -1,0 +1,16 @@
+-- Create table with constraints
+CREATE TABLE Faculty (
+  FacultyID INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Phone VARCHAR(10) UNIQUE NOT NULL
+);
+
+-- Basic SQL operations
+INSERT INTO Faculty VALUES (1, 'Dr. Rao', '9876543210');
+UPDATE Faculty SET Phone = '9123456789' WHERE FacultyID = 1;
+DELETE FROM Faculty WHERE FacultyID = 1;
+
+-- Select queries with functions
+SELECT COUNT(*) FROM Students;
+SELECT AVG(Credits) FROM Courses;
+SELECT UPPER(StudentName) FROM Students;
