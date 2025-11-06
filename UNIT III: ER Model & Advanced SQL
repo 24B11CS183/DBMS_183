@@ -1,0 +1,23 @@
+-- Join operations
+SELECT s.StudentName, c.CourseName
+FROM Students s
+JOIN Enrollments e ON s.StudentID = e.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID;
+
+-- Set operations
+SELECT StudentName FROM Students
+UNION
+SELECT Name FROM Faculty;
+
+-- Views
+CREATE VIEW StudentCourses AS
+SELECT s.StudentName, c.CourseName
+FROM Students s
+JOIN Enrollments e ON s.StudentID = e.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID;
+
+-- Nested query
+SELECT StudentName FROM Students
+WHERE StudentID IN (
+  SELECT StudentID FROM Enrollments WHERE CourseID = 101
+);
