@@ -1,0 +1,28 @@
+-- Create a University Database
+CREATE DATABASE University;
+
+-- Create tables
+CREATE TABLE Students (
+  StudentID INT PRIMARY KEY,
+  StudentName VARCHAR(100),
+  Major VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+  CourseID INT PRIMARY KEY,
+  CourseName VARCHAR(100),
+  Credits INT
+);
+
+CREATE TABLE Enrollments (
+  StudentID INT,
+  CourseID INT,
+  EnrollmentDate DATE,
+  FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+  FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+-- Insert sample data
+INSERT INTO Students VALUES (1, 'Alice', 'CSE'), (2, 'Bob', 'IT');
+INSERT INTO Courses VALUES (101, 'DBMS', 4), (102, 'OOP', 3);
+INSERT INTO Enrollments VALUES (1, 101, '2025-08-01'), (2, 102, '2025-08-02');
